@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejercicios de programacion en Javascript</title>
+</head>
+<body>
+    <h1>Ejercicios del video 41 logica de programacion (8/10)</h1>
+    <h2>Ronny Andres Mozo Indio</h2>
+    <h2>Los ejercicios son los siguientes:</h2>
+    <h2>21.- Programa una funcion que dado un array numérico devuelve otro array con los números elevados al cuadrado.</h2>
+    <h2>22.- Programa una funcion que dado un array devuelva el numoero mas alto y el mas bajo de dicho array.</h2>
+    <h2>23.- Programa una funcion que dado un array de numeros devuelva un objeto con 2 arreglo en el primero almacena los numero pares y en el segundo los numero impares.</h2>
+    <script>
+        console.log("\n-------------------Ejericio 21 --------------------\n ")
+        //21.- Programa una funcion que dado un array numérico devuelve otro array con los números elevados al cuadrado.
+        const devolverCuadrados = (arr = undefined)=>{
+            if (arr === undefined) return console.warn("No ingresaste un arreglo de número");
+
+            if (!(arr instanceof Array)) return console.error("El valor que ingresaste no es un arreglo");
+
+            if (arr.length === 0) return console.error("El arreglo o lista esta esta vacía");
+
+            for (let num of arr){
+                if (typeof num !== "number") return console.error(`El valor "${num}" ingresado, NO es un número`);
+            }
+
+            const newArr = arr.map(el => el*el);
+            return console.info(`Arreglo original: [${arr}].\nArreglo elevado al cuadrado: [${newArr}]`);
+        }
+
+        devolverCuadrados();
+        devolverCuadrados(false);
+        devolverCuadrados({});
+        devolverCuadrados([]);
+        devolverCuadrados([3,"45",{}]);
+        devolverCuadrados([5,10,{}]);
+        devolverCuadrados([10,9,7]);
+
+
+
+
+        console.log("\n-------------------Ejericio 22 --------------------\n ")
+        //22.- Programa una funcion que dado un array devuelva el numoero mas alto y el mas bajo de dicho array.
+        const arrayMinMax = (arr = undefined)=>{
+            if (arr === undefined) return console.warn("No ingresaste un arreglo de número");
+
+            if (!(arr instanceof Array)) return console.error("El valor que ingresaste no es un arreglo");
+
+            if (arr.length === 0) return console.error("El arreglo o lista esta esta vacía");
+
+            for (let num of arr){
+                if (typeof num !== "number") return console.error(`El valor "${num}" ingresado, NO es un número`);
+            }
+
+            return console.info(`Arreglo original: [${arr}]\nValor mayor: ${Math.max(...arr)}.\nValor menor: ${Math.min(...arr)}`);
+        }
+
+        arrayMinMax();
+        arrayMinMax(true);
+        arrayMinMax({});
+        arrayMinMax([]);
+        arrayMinMax([2,3,"ciao"]);
+        arrayMinMax([10,78,-2,-30]);
+
+
+
+
+        console.log("\n-------------------Ejericio 22 --------------------\n")
+        //23.- Programa una funcion que dado un array de numeros devuelva un objeto con 2 arreglo en el primero almacena los numero pares y en el segundo los numero impares.
+        const separarParesImpares = (arr = undefined)=>{
+            if (arr === undefined) return console.warn("No ingresaste un arreglo de número");
+
+            if (!(arr instanceof Array)) return console.error("El valor que ingresaste no es un arreglo");
+
+            if (arr.length === 0) return console.error("El arreglo o lista esta esta vacía");
+
+            for (let num of arr){
+                if (typeof num !== "number") return console.error(`El valor "${num}" ingresado, NO es un número`);
+            }
+            return console.info({
+                pares: arr.filter(num => num % 2 === 0),
+                impares: arr.filter(num => num % 2 === 1)
+            })
+        }
+        
+        separarParesImpares();
+        separarParesImpares("goog nigth");
+        separarParesImpares([]);
+        separarParesImpares([15,22,"hi"]);
+        separarParesImpares([20,78,1,2,3,4,6,8,9]);
+
+
+
+
+    </script>
+</body>
+</html>

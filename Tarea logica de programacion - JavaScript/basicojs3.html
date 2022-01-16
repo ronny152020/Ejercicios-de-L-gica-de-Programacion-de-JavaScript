@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejercicios de programacion en Javascript</title>
+</head>
+<body>
+    <h1>Ejercicios del video 37 logica de programacion (4/10)</h1>
+    <h2>Ronny Andres Mozo Indio</h2>
+    <h2>Los ejercicios son los siguientes:</h2>
+    <h3>9.- Programa una funcion que obtenga un numero aleatorio antre 501 y 600</h3>
+    <h3>10.- Programa una funcion que reciba un numero y evalue si es capicúa o no (que se lee igual en un sentido que en otro)</h3>
+    <h3>11.- Programa una funcion que calcule el factorial de un numero</h3>
+    <script>
+        console.log("\n-------------------Ejericio 9 --------------------\n ")
+        //9.- Programa una funcion que obtenga un numero aleatorio antre 501 y 600
+        const aleatorio = () => console.info("Su numero aleatorio es: ",Math.round((Math.random()*100)+500));
+
+        aleatorio();
+
+
+
+
+        console.log("\n-------------------Ejericio 10 --------------------\n ")
+        //10.- Programa una funcion que reciba un numero y evalue si es capicúa o no (que se lee igual en un sentido que en otro)
+        const capicua = (numero = 0)=>{
+            if(!numero)return console.warn("No ingresastes ningun numero entero");
+
+            if(typeof numero !== "number") return console.error(`El valor "${numero}" ingresado, No es un numero`);
+
+            numero = numero.toString();
+            let alReves = numero.split("").reverse().join("");
+
+            return ((numero)=== alReves)
+                ?console.info(`Si es capícua, Numero original ${numero}, Numero al revés ${alReves}`)
+                :console.info(`No es capícua, Numero original ${numero}, Numero al revés ${alReves}`)
+        }
+        capicua();
+        capicua("hola");
+        capicua("8118");
+        capicua(9779);
+        capicua(4541)
+
+
+
+
+        console.log("\n-------------------Ejericio 11 --------------------\n ")
+        //11.- Programa una funcion que calcule el factorial de un numero 
+        const factorial = (numero = undefined)=>{
+            if (numero === undefined)return console.warn("No ingresaste un numero");
+
+            if (typeof numero !== "number")return console.error(`El valor "${numero}" ingresado, No es un numero`);
+
+            if (numero === 0)return console.error("El numero no puede ser negativo");
+
+            let factorial = 1;
+
+            for (let i =numero; i >1; i--){
+                factorial *=i;
+            }
+
+            return console.info(`El factorial de ${numero} es : ${factorial}`);
+        }
+
+        factorial(5);
+        factorial(7);
+        factorial("4");
+        factorial();
+        factorial(0);
+        factorial(-9);
+
+    
+    </script>
+</body>
+</html>
