@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejercicios de programacion en Javascript</title>
+</head>
+<body>
+    <h1>Ejercicios del video 38 logica de programacion (5/10)</h1>
+    <h2>Ronny Andres Mozo Indio</h2>
+    <h2>Los ejercicios son los siguientes:</h2>
+    <h2>12.- Programa una funcion que determine si un numero es primo.</h2>
+    <h2>13.- Programa una funcion que determine si un numero es par o impar.</h2>
+    <h2>14.- Programa una funcion para convertir grados Celsius a Fahrenheit y viceversa.</h2>
+    <script>
+        console.log("\n-------------------Ejericio 12 --------------------\n ")
+        //12.- Programa una funcion que determine si un numero es primo.
+        const numeroPrimo = (numero = undefined)=>{
+            if (numero === undefined) return console.warn("No haz ingresado ningun numero");
+
+            if (typeof numero !== "number")return console.error (`El valor "${numero}" ingresado, NO es un numero`);
+
+            if (numero === 0) return console.error("El numero ingresado no debe ser 0");
+
+            if (numero === 1) return console.error("El numero ingresado no debe ser 1");
+
+            if (Math.sign(numero) === -1) return console.error("El numero no puede ser negativo");
+
+            let divisible = false;
+
+            for (let i =2; i<numero; i++){
+                if((numero%i)===0){
+                    divisible = true;
+                    break;
+                }
+            }
+            return(divisible)
+                ?console.log(`El numero ${numero}, NO es primo"`)
+                :console.log(`El numero ${numero} SÍ es primo`);
+        }
+        numeroPrimo(3);
+        numeroPrimo();
+        numeroPrimo("1");
+        numeroPrimo(1);
+        numeroPrimo(0);
+        numeroPrimo(10)
+
+
+
+
+
+        console.log("\n-------------------Ejericio 13 --------------------\n ")
+        //13.- Programa una funcion que determine si un numero es par o impar.
+        const numeroParImpar = (numero = undefined)=>{
+            if (numero === undefined)return console.warn("No haz ingresado un número");
+
+            if (typeof numero !== "number")return console.error (`El valor "${numero}" ingresado, NO es un numero`);
+
+            return ((numero%2)===0)
+                ?console.log(`El numero ${numero} es PAR"`)
+                :console.log(`El numero ${numero} es IMPAR`);
+        }
+        numeroParImpar();
+        numeroParImpar("10");
+        numeroParImpar(12);
+        numeroParImpar(51);
+
+
+
+
+
+        console.log("\n-------------------Ejericio 14 --------------------\n ")
+        //14.- Programa una funcion para convertir grados Celsius a Fahrenheit y viceversa.
+        const convertirGrados = (grados = undefined, unidad = undefined)=>{
+            if (grados === undefined)return console.warn("No ingresastes grados a convertir");
+
+            if (typeof grados !== "number")return console.error (`El valor "${grados}" ingresado, NO es un numero`);
+
+            if (unidad === undefined)return console.warn("No ingresastes el tipo de grado a convertir");
+
+            if (typeof unidad !== "string")return console.error (`El valor "${unidad}" ingresado, NO es una cadena de texto`);
+
+            if (unidad.length !== 1 || !/(C|F)/.test(unidad))return console.warn("Valor de unidad no reconocido");
+
+            if (unidad==="C"){
+                return console.info(`${grados}ºC = ${Math.round((grados * (9/5)) +32)}ºF`);
+            }else if(unidad ==="F"){
+                return console.info(`${grados}ºF = ${Math.round(((grados-32)*(5/9)))}ºF`);
+            }else{
+                return console.error("El tipo de grados a convertir NO es valido");
+            }
+        }
+        convertirGrados();
+        convertirGrados("2");
+        convertirGrados(2);
+        convertirGrados(2,true);
+        convertirGrados(2,"hola");
+        convertirGrados(2,"E");
+        convertirGrados(0,"C");
+        convertirGrados(15,"F");
+            
+        
+    </script>
+        
+</body>
+</html>
